@@ -10,6 +10,6 @@ const articleSchema = new Schema({
 });
 
 // creating new table/collection if there isn't one already
-const article = mongoose.model('user', articleSchema);
+const article = mongoose.model('article', articleSchema);
 
 module.exports = article;
