@@ -22,10 +22,9 @@ router.put("saved", (req,res)=> {
 });
 
 router.get("/scrape", (req,res)=> {
+    var results = [];
     request("http://www.nytimes.com", function (error, response, html) {
         var $ = cheerio.load(html);
-        var results = [];
-
         $("h2.story-heading").each(function (i, element) {
 
             var link = $(element).children().attr("href");
@@ -35,9 +34,10 @@ router.get("/scrape", (req,res)=> {
                 link: link
             });
         });
-        console.log(results);
+        
     });
-    res.render("scrape")
+    res.render("scrape",{results: results})
+    console.log(results);
 });
 
 module.exports = router;
