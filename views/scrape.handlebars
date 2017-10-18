@@ -1,17 +1,17 @@
-<div>
-    {{#each article}}
+<div class="container">
+    {{#each}}
         <div class="col s12 m7">
-            <h2 class="header">Horizontal Card</h2>
+            <h2 class="header">{{this.tittle}}</h2>
             <div class="card horizontal">
                 <div class="card-image">
-                    <img src="">
+                    <img src="{{this.img}}">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.</p>
+                        <p></p>
                     </div>
                     <div class="card-action">
-                        <a href="#">This is a link</a>
+                        <a href="{{this.link}}">{{this.link}}</a>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@ const cheerio = require("cheerio");
 const request = require("request");
 
 router.get("/", function(req, res) {
-    console.log("it's working");
+
 });
 
 router.post("/", (req,rs)=> {
@@ -37,6 +37,7 @@ router.get("/scrape", (req,res)=> {
         });
         console.log(results);
     });
+    res.render("scrape")
 });
 
 module.exports = router;

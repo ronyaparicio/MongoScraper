@@ -12,17 +12,21 @@
 <body>
     <nav>
         <div class="nav-wrapper #e53935 red darken-1">
-            <a href="#!" class="brand-logo center">Mongo Scraper</a>
+            <a href="/" class="brand-logo center">Mongo Scraper</a>
             <ul class="left hide-on-med-and-down">
-                <li>
+                <li class="">
                     <a href="/">Home</a>
                 </li>
-                <li>
+                <li class="">
                     <a href="/saved">Saved Articles</a>
                 </li>
             </ul>
+            <a id="scrape" class="waves-effect waves-light btn">Add Articles</a>
         </div>
     </nav>
-    {{body}}
+    
+    {{{ body }}}
+    
+    <script src="assets/js/index.js"></script>
 </body>
 </html>
