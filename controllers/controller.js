@@ -4,9 +4,6 @@ const router = express.Router();
 const cheerio = require("cheerio");
 const request = require("request");
 
-router.get("/", function(req, res) {
-
-});
 
 router.post("/", (req,rs)=> {
 
@@ -20,13 +17,14 @@ router.get("/saved", (req,res)=> {
 router.put("saved", (req,res)=> {
 
 });
-
+var results = [];
+//route scrape articles from nyt
 router.get("/scrape", (req,res)=> {
-    var results = [];
+    
     request("http://www.nytimes.com", function (error, response, html) {
         var $ = cheerio.load(html);
+        results;
         $("h2.story-heading").each(function (i, element) {
-
             var link = $(element).children().attr("href");
             var title = $(element).children().text();
             results.push({
@@ -35,8 +33,10 @@ router.get("/scrape", (req,res)=> {
             });
         });
         
+        
     });
     res.render("scrape",{results: results})
+   
     console.log(results);
 });
 

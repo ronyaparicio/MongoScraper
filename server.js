@@ -3,11 +3,10 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = process.env.PORT || 8080;
 const exphbs = require("express-handlebars");
-
-
 const routes = require("./controllers/controller.js");
 const path = require('path');
 const mongoose = require('mongoose');
+const db = require('./connection/connection.js');
 
 
 app.use(express.static(path.resolve('./public')));
