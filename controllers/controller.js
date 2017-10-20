@@ -25,6 +25,7 @@ router.get("/saved", (req,res)=> {
         } else {
             res.send(doc);
         }
+        console.log(doc)
         res.render("savedArticles",{art: doc})
     })
 });
