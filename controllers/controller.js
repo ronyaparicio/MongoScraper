@@ -3,20 +3,33 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const cheerio = require("cheerio");
 const request = require("request");
+const article = require("../models/article.js")
 
+mongoose.Promise = Promise;
 
-router.post("/", (req,rs)=> {
-
+router.post("/save", (req,rs)=> {
+    let newArticle = new article(req.body);
+    newArticle.save(function (err, doc) {
+        if (err) {
+            res.send(err)
+        } else {
+            console.log(doc)
+        }
+    })
 });
 
 router.get("/saved", (req,res)=> {
-    res.render("savedArticles");
-
+    article.find({}, (error, doc)=> {
+        if(error) {
+            res.send(error);
+        } else {
+            res.send(doc);
+        }
+        res.render("savedArticles",{art: doc})
+    })
 });
 
-router.put("saved", (req,res)=> {
 
-});
 //route scrape articles from nyt
 router.get("/scrape", (req,res)=> {
     var results = [];
