@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 
 //table schema
 const articleSchema = new Schema({
-    title: string,
-    sumary: string,
-    URL: string
+    title: String,
+    sumary: String,
+    URL: String
 });
 
 // creating new table/collection if there isn't one already

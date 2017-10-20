@@ -17,13 +17,13 @@ router.get("/saved", (req,res)=> {
 router.put("saved", (req,res)=> {
 
 });
-var results = [];
 //route scrape articles from nyt
 router.get("/scrape", (req,res)=> {
-    
+    var results = [];
+    let count = 0;
     request("http://www.nytimes.com", function (error, response, html) {
         var $ = cheerio.load(html);
-        results;
+        //results;
         $("h2.story-heading").each(function (i, element) {
             var link = $(element).children().attr("href");
             var title = $(element).children().text();
@@ -31,13 +31,13 @@ router.get("/scrape", (req,res)=> {
                 title: title,
                 link: link
             });
+            count++;
         });
         
+        console.log('something!!!', results.length)
         
+        res.render("scrape",{result: results})
     });
-    res.render("scrape",{results: results})
-   
-    console.log(results);
 });
 
 module.exports = router;
