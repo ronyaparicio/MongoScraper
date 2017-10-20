@@ -27,11 +27,15 @@ router.get("/scrape", (req,res)=> {
         $("h2.story-heading").each(function (i, element) {
             var link = $(element).children().attr("href");
             var title = $(element).children().text();
-            results.push({
-                title: title,
-                link: link
-            });
-            count++;
+            
+            if(link && title && count <= 9) {
+                results.push({
+                    title: title,
+                    link: link
+                });
+                count++
+            }
+            
         });
         
         console.log('something!!!', results.length)
