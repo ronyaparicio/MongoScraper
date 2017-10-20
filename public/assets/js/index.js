@@ -8,18 +8,21 @@ $('document').ready(function() {
         $('#content').append(response);
     })
     
-    $('.save').on('click', function() {
-        var title = $('.class')
-        $.ajax({
-            url: '/saved',
-            method: "POST",
+    // $('.save').on('click', function() {
+    //     var title = $('.class')
+    //     $.ajax({
+    //         url: '/saved',
+    //         method: "POST",
+    //         data: {
+
+    //         }
             
-        }).done(function(res) {
+    //     }).done(function(res) {
             
-            $("#content").append(res);
-            console.log('save')
-        })
-    })
+    //         $("#content").append(res);
+    //         console.log('save')
+    //     })
+    // })
 });
 
 
