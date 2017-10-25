@@ -5,6 +5,8 @@ const cheerio = require("cheerio");
 const request = require("request");
 const article = require("../models/article.js");
 const bodyParser = require("body-parser");
+const app = express();
+
 
 mongoose.Promise = Promise;
 

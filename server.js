@@ -9,11 +9,13 @@ const mongoose = require('mongoose');
 const db = require('./connection/connection.js');
 
 
+
 app.use(express.static(path.resolve('./public')));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use("/",routes);
-
 app.listen(PORT, function() {
     console.log("App listening on PORT: " + PORT);
   });
