@@ -8,21 +8,21 @@ $('document').ready(function() {
         $('#content').append(response);
     })
     
-    // $('.save').on('click', function() {
-    //     var title = $('.class')
-    //     $.ajax({
-    //         url: '/saved',
-    //         method: "POST",
-    //         data: {
-
-    //         }
-            
-    //     }).done(function(res) {
-            
-    //         $("#content").append(res);
-    //         console.log('save')
-    //     })
-    // })
+    $(document).on('click', '.save', function() {
+        var self = this;
+        var title = $(this).attr("title");
+        var link = $(this).attr("link");
+        $.ajax({
+            url: '/saved',
+            method: "POST",
+            data: {
+                title: title,
+                link: link
+            }
+        }).done(function(res) {
+            console.log(res)
+        })
+    })
 });
 
 
