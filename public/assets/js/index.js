@@ -4,23 +4,22 @@ $('document').ready(function() {
         url: "/scrape",
         method: "GET"
     }).done(function(response) {
-        console.log(response)
         $('#content').append(response);
     })
     
     $(document).on('click', '.save', function() {
-        var self = this;
         var title = $(this).attr("title");
         var link = $(this).attr("link");
         $.ajax({
-            url: '/saved',
+            url: '/',
             method: "POST",
+            dataType: "json",
             data: {
                 title: title,
                 link: link
             }
         }).done(function(res) {
-            console.log(res)
+            
         })
     })
 });

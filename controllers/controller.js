@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const cheerio = require("cheerio");
 const request = require("request");
-const article = require("../models/article.js")
+const article = require("../models/article.js");
+const bodyParser = require("body-parser");
 
 mongoose.Promise = Promise;
 
-router.post("/save", (req,rs)=> {
+router.post("/", (req,rs)=> {
+    console.log(req.body);
     let newArticle = new article(req.body);
     newArticle.save(function (err, doc) {
         if (err) {
