@@ -1,13 +1,14 @@
 <div class="row">
     {{#each art}}
-        <div class="col s12 m6">
+        <div class="col s12 m12">
             <div class="card blue-grey darken-1">
                 <div class="card-content white-text">
-                    <span class="card-title">{{date}}</span>
+                    <span class="card-title">{{title}}</span>
                 </div>
                 <div class="card-action">
                     <a href="{{link}}">LINK</a>
-                    <a class="waves-effect waves-light btn save" title = {{title}}  link={{link}}>save</a>
+                    <a class="waves-effect waves-light btn comment">comment</a>
+                    <a class="  #e53935 red darken-1 btn delete">delete</a>
                 </div>
             </div>
         </div>
