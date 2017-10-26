@@ -30,7 +30,6 @@ $('document').ready(function() {
             url: '/saved',
             method: 'GET'
         }).done(function(res) {
-            console.log(res);
             $('#content').append(res);
         })
     })
@@ -49,12 +48,13 @@ $('document').ready(function() {
     $(document).on('click', '.delete', function() {
         console.log('clicked');
         var id = $(this).attr("id");
-
         $.ajax({
-            url: '/delete/'+ id,
-            method: 'DELETE'
+            url: '/'+ id,
+            method: "DELETE"
         }).done (function(res) {
             console.log(res);
+            $('#content').empty();
+            $('#content').append(res);
         })
     })
 });

@@ -65,12 +65,19 @@ router.get('/comment',(req,res)=> {
 
 });
 
-router.delete('delete/:id', (req,res) => {
-    console.log('havana na na na');
-    console.log(req.params);
+router.delete('/:id', (req,res) => {
+    console.log(req.params.id);
     article.findByIdAndRemove(req.params.id,()=> {
         let response = {
             message: "successfulyy deleted"
+        }
+    });
+    article.find({}, (error, doc)=> {
+        console.log('havana na na na'+doc);
+        if(error) {
+            res.send(error);
+        } else {
+            res.render("savedArticles",{art: doc}) 
         }
     });
 })
