@@ -1,4 +1,5 @@
 const express = require("express");
+const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const router = express.Router();
 const cheerio = require("cheerio");
@@ -60,10 +61,18 @@ router.get("/scrape", (req,res)=> {
     });
 });
 
-router.get('/comment',()=> {
+router.get('/comment',(req,res)=> {
 
 });
 
-router.get('delete/:id')
+router.delete('delete/:id', (req,res) => {
+    console.log('havana na na na');
+    console.log(req.params);
+    article.findByIdAndRemove(req.params.id,()=> {
+        let response = {
+            message: "successfulyy deleted"
+        }
+    });
+})
 
 module.exports = router;

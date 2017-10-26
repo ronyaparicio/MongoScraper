@@ -47,13 +47,14 @@ $('document').ready(function() {
     })
     //delete article
     $(document).on('click', '.delete', function() {
+        console.log('clicked');
         var id = $(this).attr("id");
 
         $.ajax({
-            url: '/comment',
+            url: '/delete/'+ id,
             method: 'DELETE'
         }).done (function(res) {
-
+            console.log(res);
         })
     })
 });
