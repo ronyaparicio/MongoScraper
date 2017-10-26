@@ -10,7 +10,7 @@ const app = express();
 
 mongoose.Promise = Promise;
 
-router.post("/", (req,rs)=> {
+router.post("/", (req,res)=> {
     console.log(req.body);
     let newArticle = new article(req.body);
     newArticle.save(function (err, doc) {
@@ -59,5 +59,11 @@ router.get("/scrape", (req,res)=> {
         res.render("scrape",{result: results})
     });
 });
+
+router.get('/comment',()=> {
+
+});
+
+router.get('delete/:id')
 
 module.exports = router;

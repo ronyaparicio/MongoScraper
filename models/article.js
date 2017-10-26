@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 
 //table schema
 const articleSchema = new Schema({
-    title: String,
+    title: {
+        type: String,
+        unique: true
+    },
     link: String,
     date: {
         type: Date,

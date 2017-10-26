@@ -1,5 +1,6 @@
 
 $('document').ready(function() {
+    //scrap when the page loads
     $.ajax({
         url: "/scrape",
         method: "GET"
@@ -22,6 +23,7 @@ $('document').ready(function() {
             
         })
     })
+    //save article on button click
     $("#savedArticles").on("click",function() {
         $('#content').empty();
         $.ajax({
@@ -30,6 +32,28 @@ $('document').ready(function() {
         }).done(function(res) {
             console.log(res);
             $('#content').append(res);
+        })
+    })
+    // add comments
+    $(document).on('click', '.comment', function() {
+        var id = $(this).attr("id");
+
+        $.ajax({
+            url: '/comment',
+            method: 'GET'
+        }).done (function(res) {
+
+        })
+    })
+    //delete article
+    $(document).on('click', '.delete', function() {
+        var id = $(this).attr("id");
+
+        $.ajax({
+            url: '/comment',
+            method: 'DELETE'
+        }).done (function(res) {
+
         })
     })
 });
